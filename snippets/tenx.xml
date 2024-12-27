@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="tenx"
+          fetch="https://github.com/TenX-OS-vic"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/fifteen" />
+  <remote name="tenx-udc"
+          fetch="https://github.com/TenX-UDC"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/fourteen" />
+  <remote name="tenx-gitlab"
+          fetch="https://gitlab.com/pixelos-aosp"
+          sync-c="true"
+          sync-j="4"
+          revision="refs/heads/fifteen" />
+
+  <!-- Framework repos -->
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="tenx" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="tenx" />
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="tenx" />
+
+  <!-- General repos -->
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="tenx" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <project path="android" name="manifest" remote="tenx" />
+
+  <!-- Packages repos -->
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="tenx" />
+  <project path="packages/apps/TenX" name="packages_apps_TenX" remote="tenx" />
+  <project path="packages/overlays/Lineage" name="packages_overlays_Lineage" remote="tenx" />
+
+  <!-- System repos -->
+  <project path="system/core" name="system_core" groups="pdk" remote="tenx" />
+  <project path="system/libhwbinder" name="system_libhwbinder" groups="pdk" remote="tenx" />
+
+  <!-- Vendor repos -->
+  <project path="vendor/lineage" name="vendor_tenx" remote="tenx" />
+  <project path="vendor/support" name="vendor_tenx_support" remote="tenx" />
+  <project path="vendor/overlays/Elegance" name="vendor_overlays_Elegance" remote="tenx" />
+  <project path="vendor/google/overlays/ThemeIcons" name="vendor_google_overlays_ThemeIcons" remote="tenx" />
+  <project path="vendor/extra" name="vendor_extra" remote="tenx" />
+
+  <!-- gms -->
+  <project path="vendor/gms" name="vendor_gms" remote="tenx-gitlab" clone-depth="1" />
+
+</manifest>
